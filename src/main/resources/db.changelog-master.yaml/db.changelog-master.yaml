@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelogTester.yaml
+  - changeSet:
+      id: 11
+      author: vladimir_yakimov
+      changes:
+        - createTable:
+            tableName: quiz
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: version
+                  type: int
+                  constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(2048)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: begin_date
+                  type: date
+              - column:
+                  name: end_date
+                  type: date
+        - createTable:
+            tableName: question
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: version
+                  type: int
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(2048)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: display_order
+                  type: integer
+              - column:
+                  name: quiz_id
+                  type: bigint

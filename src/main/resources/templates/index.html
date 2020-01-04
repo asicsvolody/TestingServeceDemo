@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <title>Start page testing service demo</title>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div class="text-left">
+
+        <h1>This test task from Yakimov Vladimir</h1>
+
+        <div class="lead">
+            Welcome to my testing application.
+            I hope that it likes for you.
+            I have make service for control, save and update quizzes for people&
+        </div>
+
+        <div th:insert="~{fragments/footer :: footer}">&copy; 2020 Vladimir Yakimov</div>
+    </div>
+</div>
+
+</body>
+</html>
