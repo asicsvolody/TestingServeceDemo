@@ -72,9 +72,6 @@ public class Question implements Serializable {
         this.quiz = quiz;
     }
 
-    public void setDisplayOrder(Integer displayOrder) {
-        this.displayOrder = displayOrder;
-    }
 
 //    @Override
 //    public String toString() {

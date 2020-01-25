@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+    <title>
+        Source for testing control
+    </title>
+
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div class="text-left" th:if="${not #lists.isEmpty(quizzes)}">
+
+        <h1>Quizzes List</h1>
+
+        <div class="lead">
+            <table class="table table-striped">
+                <tr>
+                    <th>Title</th>
+                    <th>Begin</th>
+                    <th>End</th>
+                    <th>Is active</th>
+                </tr>
+                <tr th:each="quiz : ${quizzes}">
+                    <td th:text="${quiz.title}">Quiz title</td>
+                    <td th:text="${quiz.beginDate}">Quiz start date</td>
+                    <td th:text="${quiz.endDate}">Quiz end date</td>
+                    <td th:text="${quiz.isActive()}">Quiz end date</td>
+
+                    <td><a th:href="${ '/quizzes/' + quiz.id}">View</a></td>
+                    <td><a th:href="${'/quizzes/edit/' + quiz.id}">Edit</a></td>
+                    <td><a th:href="${'/quizzes/delete/' + quiz.id}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:insert="~{fragments/footer :: footer}">&copy; 2020 Vladimir Yakimov</div>
+    </div>
+</div>
+
+</body>
+</html>

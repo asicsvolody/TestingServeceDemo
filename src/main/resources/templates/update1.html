@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../public/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+
+    <title>
+        Source for testing control
+    </title>
+
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+
+    <h1>Singer Details</h1>
+
+    <div>
+        <form th:object="${quiz}">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{version}">
+            <input type="text" th:field="*{title}">
+            <input type="text" th:field="*{beginDate}">
+            <input type="text" th:field="*{endDate}">
+            <th:block th:each="quest, stat:*{questions}">
+                <input type="hidden" th:field="*{questions[__${stat.index}___}].id">
+                <input type="text" th:field="*{questions[__${stat.index}___}].displayOrder">
+                <input type="text" th:field="*{questions[__${stat.index}___}].title">
+            </th:block>>
+
+        </form>
+    </div>
+    <div th:insert="~{fragments/footer :: footer}">&copy; 2020 Vladimir Yakimov</div>
+</div>
+
+</body>
+</html>
