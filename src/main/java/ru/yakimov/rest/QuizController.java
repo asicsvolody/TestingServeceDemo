@@ -1,8 +1,3 @@
-/**
- * Created by IntelliJ Idea.
- * User: Якимов В.Н.
- * E-mail: yakimovvn@bk.ru
- */
 
 package ru.yakimov.rest;
 
@@ -20,6 +15,12 @@ import ru.yakimov.services.QuizService;
 
 import javax.validation.Valid;
 import java.util.List;
+
+/**
+ * Created by IntelliJ Idea.
+ * User: Якимов В.Н.
+ * E-mail: yakimovvn@bk.ru
+ */
 
 @Controller
 @RequestMapping(value = "/quizzes")
@@ -54,6 +55,7 @@ public class QuizController {
         return "update1";
     }
 
+//    !!!!
     @GetMapping(value = "/quizzes/addQue/{id}")
     public String addQuestion(@PathVariable("id") Long id, Model uiModel) {
         Quiz quiz = (Quiz) uiModel.getAttribute("quiz");
